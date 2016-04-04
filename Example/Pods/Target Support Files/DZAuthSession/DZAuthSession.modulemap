@@ -1,0 +1,6 @@
+framework module DZAuthSession {
+  umbrella header "DZAuthSession-umbrella.h"
+
+  export *
+  module * { export * }
+}

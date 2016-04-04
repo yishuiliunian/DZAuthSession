@@ -1,0 +1,6 @@
+framework module Pods_DZAuthSession_Example {
+  umbrella header "Pods-DZAuthSession_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

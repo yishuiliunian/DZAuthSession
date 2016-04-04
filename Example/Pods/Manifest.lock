@@ -1,0 +1,21 @@
+PODS:
+  - DZAuthSession (0.1.0)
+  - FBSnapshotTestCase (2.1.0):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.0)
+  - FBSnapshotTestCase/Core (2.1.0)
+  - FBSnapshotTestCase/SwiftSupport (2.1.0):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - DZAuthSession (from `../`)
+  - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  DZAuthSession:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DZAuthSession: 84814afe7f6a0817ed86ed44ed8594c51f354685
+  FBSnapshotTestCase: 366ecd378511d7716c79991cd8067d1eed23578d
+
+COCOAPODS: 0.39.0
