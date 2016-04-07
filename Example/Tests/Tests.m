@@ -5,7 +5,7 @@
 //  Created by stonedong on 04/04/2016.
 //  Copyright (c) 2016 stonedong. All rights reserved.
 //
-
+#import "DZAuthSession.h"
 @import XCTest;
 
 @interface Tests : XCTestCase
@@ -28,7 +28,7 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssert(DZShareAuthSessionManager, @"Get Shared Auth Session Manager");
 }
 
 @end

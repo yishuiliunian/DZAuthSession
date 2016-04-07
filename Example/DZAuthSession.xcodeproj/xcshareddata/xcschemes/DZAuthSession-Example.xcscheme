@@ -38,6 +38,16 @@
                ReferencedContainer = "container:DZAuthSession.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E110B0AB1CB68A11005F78E5"
+               BuildableName = "DZAuthSession_ExampleTests.xctest"
+               BlueprintName = "DZAuthSession_ExampleTests"
+               ReferencedContainer = "container:DZAuthSession.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
