@@ -1,10 +1,12 @@
 PODS:
-  - DZAuthSession (0.1.0)
+  - DZAuthSession (0.1.0):
+    - Valet
   - FBSnapshotTestCase (2.1.0):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.0)
   - FBSnapshotTestCase/Core (2.1.0)
   - FBSnapshotTestCase/SwiftSupport (2.1.0):
     - FBSnapshotTestCase/Core
+  - Valet (2.2.1)
 
 DEPENDENCIES:
   - DZAuthSession (from `../`)
@@ -12,10 +14,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   DZAuthSession:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  DZAuthSession: 84814afe7f6a0817ed86ed44ed8594c51f354685
+  DZAuthSession: 820a622b62f927f6797f6a065560616c14674319
   FBSnapshotTestCase: 366ecd378511d7716c79991cd8067d1eed23578d
+  Valet: 8873c1f797822a513b5b3b18d19955fc39b22aab
 
 COCOAPODS: 0.39.0

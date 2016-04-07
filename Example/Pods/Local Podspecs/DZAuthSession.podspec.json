@@ -21,5 +21,10 @@
     "DZAuthSession": [
       "Pod/Assets/*.png"
     ]
+  },
+  "dependencies": {
+    "Valet": [
+
+    ]
   }
 }

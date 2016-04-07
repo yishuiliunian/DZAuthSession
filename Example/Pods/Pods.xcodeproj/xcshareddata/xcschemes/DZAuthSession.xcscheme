@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E6B660495F2C059AAE720969'
+               BlueprintIdentifier = '9949B5ACFECA24E70187967F'
                BlueprintName = 'DZAuthSession'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DZAuthSession.framework'>

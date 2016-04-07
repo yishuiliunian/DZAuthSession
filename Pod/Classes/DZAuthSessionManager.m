@@ -7,9 +7,8 @@
 //
 
 #import "DZAuthSessionManager.h"
-#import <DZFileUtils.h>
 #import "DZAuth.h"
-#import <Valet.h>
+#import "Valet.h"
 @interface DZAuthSessionManager ()
 {
     dispatch_queue_t _modifyQueue;

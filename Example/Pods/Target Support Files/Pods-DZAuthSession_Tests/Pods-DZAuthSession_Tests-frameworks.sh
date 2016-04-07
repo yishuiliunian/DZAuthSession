@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-DZAuthSession_Tests/DZAuthSession.framework"
+  install_framework "Pods-DZAuthSession_Tests/Valet.framework"
   install_framework "Pods-DZAuthSession_Tests/FBSnapshotTestCase.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-DZAuthSession_Tests/DZAuthSession.framework"
+  install_framework "Pods-DZAuthSession_Tests/Valet.framework"
   install_framework "Pods-DZAuthSession_Tests/FBSnapshotTestCase.framework"
 fi

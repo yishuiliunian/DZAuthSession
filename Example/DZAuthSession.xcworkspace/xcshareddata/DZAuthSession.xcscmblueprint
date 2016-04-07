@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AB63D864D049E55EF9E9B33F800F96F1AAC19D4E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4FC341B6D20320319C7077FD81FE188C46915CF7" : 0,
+    "AB63D864D049E55EF9E9B33F800F96F1AAC19D4E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6A3084E0-286D-4CC2-BCE1-ABB61785D699",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4FC341B6D20320319C7077FD81FE188C46915CF7" : "..",
+    "AB63D864D049E55EF9E9B33F800F96F1AAC19D4E" : "DZAuthSession\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DZAuthSession",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/DZAuthSession.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/www.catchitime.com:8022\/diffusion\/KIOS\/k-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4FC341B6D20320319C7077FD81FE188C46915CF7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yishuiliunian\/DZAuthSession",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AB63D864D049E55EF9E9B33F800F96F1AAC19D4E"
+    }
+  ]
+}
