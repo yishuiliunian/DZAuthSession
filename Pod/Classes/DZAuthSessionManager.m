@@ -110,7 +110,7 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
 
 - (void) registerActiveByID:(NSString*)userID
 {
-   dispatch_async(_modifyQueue, ^{
+   dispatch_sync(_modifyQueue, ^{
        for (DZAuth* auth in _allSessions) {
            if ([auth.userID isEqualToString:userID]) {
                [_valet setString:userID forKey:kDZAuthActiveUserID];
