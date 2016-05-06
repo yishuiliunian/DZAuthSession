@@ -55,8 +55,9 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
         _allSessions = array;
     });
     NSString* activeUserID = [_valet stringForKey:kDZAuthActiveUserID];
+    NSString* activeUserStand = [[NSUserDefaults standardUserDefaults] objectForKey:kDZAuthActiveUserID];
     for (DZAuth* auth in _allSessions) {
-        if ([auth.userID isEqualToString:activeUserID]) {
+        if ([auth.userID isEqualToString:activeUserID] && [activeUserID isEqualToString:activeUserStand]) {
             _activeSession = auth;
         }
     }
@@ -115,6 +116,8 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
            if ([auth.userID isEqualToString:userID]) {
                [_valet setString:userID forKey:kDZAuthActiveUserID];
                _activeSession = auth;
+               [[NSUserDefaults standardUserDefaults] setObject:userID forKey:kDZAuthActiveUserID];
+               [[NSUserDefaults standardUserDefaults] synchronize];
                break;
            }
        }
