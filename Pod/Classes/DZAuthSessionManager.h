@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
+
+extern NSString* const kDZAuthSessionRegisterActive;
+extern NSString* const kDZAuthSessionResignActive;
+
 /**
  *  Share Authentical Session Manager
  *

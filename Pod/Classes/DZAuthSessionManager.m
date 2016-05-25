@@ -9,6 +9,11 @@
 #import "DZAuthSessionManager.h"
 #import "DZAuth.h"
 #import "Valet.h"
+
+
+NSString* const kDZAuthSessionRegisterActive = @"kDZAuthSessionRegisterActive";
+NSString* const kDZAuthSessionResignActive = @"kDZAuthSessionResignActive";
+
 @interface DZAuthSessionManager ()
 {
     dispatch_queue_t _modifyQueue;
@@ -93,6 +98,10 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
             break;
         }
     });
+    if (result) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDZAuthSessionRegisterActive object:nil];
+    }
+    return result;
 }
 
 - (BOOL) removeSessionByID:(NSString *)userID
@@ -129,6 +138,7 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
 {
     [_valet removeObjectForKey:kDZAuthActiveUserID];
     _activeSession = nil;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDZAuthSessionResignActive object:nil];
 }
 
 - (void) removeAllSessions
