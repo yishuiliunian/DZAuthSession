@@ -43,6 +43,12 @@ extern NSString* const kDZAuthSessionResignActive;
 + (DZAuthSessionManager*) shareManager;
 
 /**
+ *  Register the auth data class
+ *
+ *  @param cla Auth Model data class
+ */
++ (void) registerAuthClass:(Class)cla;
+/**
  *  register an authentical session
  *
  *  @param session the auth session

@@ -131,6 +131,10 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
            }
        }
    });
+}
+
++ (void) registerAuthClass:(Class)cla
+{
     
 }
 
