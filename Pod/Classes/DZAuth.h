@@ -23,4 +23,9 @@
  *  the origin password, save it carefully
  */
 @property (nonatomic, strong) NSString* password;
+
+/**
+ *  user account name, uarally it may be phone number or email
+ */
+@property (nonatomic, strong) NSString* accountName;
 @end

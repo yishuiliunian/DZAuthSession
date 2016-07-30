@@ -11,6 +11,7 @@
 static NSString* kDZAuthPassword = @"p";
 static NSString* kDZAuthUserID = @"u";
 static NSString* kDZAuthToken = @"t";
+static NSString* kDZAuthAccount = @"a";
 
 @implementation DZAuth
 - (BOOL) isEqual:(DZAuth*)object
@@ -26,6 +27,7 @@ static NSString* kDZAuthToken = @"t";
     [aCoder encodeObject:self.userID forKey:kDZAuthUserID];
     [aCoder encodeObject:self.password forKey:kDZAuthPassword];
     [aCoder encodeObject:self.token forKey:kDZAuthToken];
+    [aCoder encodeObject:self.accountName forKey:kDZAuthAccount];
 }
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder
@@ -37,6 +39,7 @@ static NSString* kDZAuthToken = @"t";
     self.password = [aDecoder decodeObjectForKey:kDZAuthPassword];
     self.userID = [aDecoder decodeObjectForKey:kDZAuthUserID];
     self.token = [aDecoder decodeObjectForKey:kDZAuthToken];
+    self.accountName = [aDecoder decodeObjectForKey:kDZAuthAccount];
     return self;
 }
 @end
