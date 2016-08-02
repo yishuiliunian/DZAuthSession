@@ -23,7 +23,7 @@ NSString* const kDZAuthSessionResignActive = @"kDZAuthSessionResignActive";
 @end
 
 static NSString* kDZAuthAllSessions = @"kDZAuthAllSessions";
-static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
+static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
 
 @implementation DZAuthSessionManager
 
@@ -56,15 +56,15 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
         return;
     }
     NSArray* array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    dispatch_barrier_sync(_modifyQueue, ^{
-        _allSessions = array;
-    });
+    _allSessions = array;
     NSString* activeUserID = [_valet stringForKey:kDZAuthActiveUserID];
-    NSString* activeUserStand = [[NSUserDefaults standardUserDefaults] objectForKey:kDZAuthActiveUserID];
     for (DZAuth* auth in _allSessions) {
-        if ([auth.userID isEqualToString:activeUserID] && [activeUserID isEqualToString:activeUserStand]) {
+        if ([auth.userID isEqualToString:activeUserID]) {
             _activeSession = auth;
         }
+    }
+    if (!_activeSession) {
+        NSLog(@"NULL active auth");
     }
 }
 - (void) store
@@ -78,30 +78,31 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
 - (BOOL) registerSession:(DZAuth *)session
 {
     NSParameterAssert(session);
-    __block BOOL result;
     dispatch_barrier_sync(_modifyQueue, ^{
         for(;;){
+            DZAuth* exsitAuth = nil;
             for (DZAuth* s   in self.allSessions) {
                 if ([s isEqual:session]) {
                     s.password = session.password;
                     s.token = session.token;
-                    [self store];
-                    result = YES;
+                    s.userID = session.userID;
+                    s.accountName = session.accountName;
+                    exsitAuth = s;
                     break;
                 }
             }
+            
             NSMutableArray* array = [ NSMutableArray arrayWithArray:self.allSessions];
-            [array addObject:session];
+            if (!exsitAuth) {
+                [array addObject:session];
+            }
             _allSessions = array;
             [self store];
-            result = YES;
             break;
         }
     });
-    if (result) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kDZAuthSessionRegisterActive object:nil];
-    }
-    return result;
+    return YES;
 }
 
 - (BOOL) removeSessionByID:(NSString *)userID
@@ -125,7 +126,6 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID";
            if ([auth.userID isEqualToString:userID]) {
                [_valet setString:userID forKey:kDZAuthActiveUserID];
                _activeSession = auth;
-               [[NSUserDefaults standardUserDefaults] setObject:userID forKey:kDZAuthActiveUserID];
                [[NSUserDefaults standardUserDefaults] synchronize];
                break;
            }
