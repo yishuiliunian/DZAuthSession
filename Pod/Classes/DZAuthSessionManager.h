@@ -84,4 +84,11 @@ extern NSString* const kDZAuthSessionResignActive;
  */
 - (void) registerActiveByID:(NSString*)userID;
 
+
+/**
+ *  register an auth session , and make it active
+ *
+ *  @param session the auth session will active and store
+ */
+- (void) registerActiveSession:(DZAuth*)session;
 @end

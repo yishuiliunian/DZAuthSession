@@ -42,4 +42,8 @@ static NSString* kDZAuthAccount = @"a";
     self.accountName = [aDecoder decodeObjectForKey:kDZAuthAccount];
     return self;
 }
+- (NSString*) description
+{
+    return [NSString stringWithFormat:@"User:[%@], token:(%@)",self.userID, self.token];
+}
 @end
