@@ -25,7 +25,7 @@ static NSString* kDZAuthAllSessions = @"kDZAuthAllSessions-v2";
 static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
 
 @implementation DZAuthSessionManager
-
+@synthesize activeSession=_activeSession;
 + (DZAuthSessionManager*) shareManager
 {
     static DZAuthSessionManager* sessionManager;
@@ -85,8 +85,14 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
 
 - (void) registerActiveSession:(DZAuth*)session
 {
-    [self registerSession:session];
-    [self registerActiveByID:session.userID];
+    NSParameterAssert(session);
+    NSParameterAssert(session.userID);
+    @synchronized (self) {
+        _allSessionsMap[session.userID] = session;
+        [self store];
+        _activeSession = session;
+        [_valet setString:session.userID forKey:kDZAuthActiveUserID];
+    }
 }
 
 - (BOOL) removeSessionByID:(NSString *)userID
@@ -112,6 +118,12 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
     [[NSNotificationCenter defaultCenter] postNotificationName:kDZAuthSessionRegisterActive object:nil];
 }
 
+- (DZAuth*) activeSession
+{
+    @synchronized (self) {
+        return _activeSession;
+    }
+}
 + (void) registerAuthClass:(Class)cla
 {
     
