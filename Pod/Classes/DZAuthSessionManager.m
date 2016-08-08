@@ -128,7 +128,12 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
 {
     
 }
-
+- (NSArray*) allSessions
+{
+    @synchronized (self) {
+        return [_allSessionsMap allValues];
+    }
+}
 - (BOOL) resignActiveSession
 {
     @synchronized (self) {
