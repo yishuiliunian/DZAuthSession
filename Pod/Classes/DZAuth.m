@@ -44,6 +44,6 @@ static NSString* kDZAuthAccount = @"a";
 }
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"User:[%@], token:(%@)",self.userID, self.token];
+    return [NSString stringWithFormat:@"User:[%@], token:(%@), account:[%@]",self.userID, self.token, self.accountName];
 }
 @end
