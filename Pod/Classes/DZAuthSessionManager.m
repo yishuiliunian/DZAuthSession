@@ -57,10 +57,10 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
     _allSessionsMap = [NSMutableDictionary dictionaryWithDictionary:authMap];
     NSString* activeUserID = [_valet stringForKey:kDZAuthActiveUserID];
     DZAuth* auth = [_allSessionsMap objectForKey:activeUserID];
-    if (auth) {
+    if (auth != nil) {
         _activeSession = auth;
     }
-    if (!_activeSession) {
+    if (self.activeSession == nil) {
         NSLog(@"NULL active auth");
     }
 }
