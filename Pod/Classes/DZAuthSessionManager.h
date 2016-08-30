@@ -12,6 +12,7 @@
 
 extern NSString* const kDZAuthSessionRegisterActive;
 extern NSString* const kDZAuthSessionResignActive;
+extern NSString* const kDZAuthSessionWillResignActive;
 
 /**
  *  Share Authentical Session Manager

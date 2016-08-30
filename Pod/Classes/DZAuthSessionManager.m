@@ -11,8 +11,9 @@
 #import "Valet.h"
 
 
-NSString* const kDZAuthSessionRegisterActive = @"kDZAuthSessionRegisterActive";
-NSString* const kDZAuthSessionResignActive = @"kDZAuthSessionResignActive";
+NSString* const kDZAuthSessionRegisterActive   = @"kDZAuthSessionRegisterActive";
+NSString* const kDZAuthSessionResignActive     = @"kDZAuthSessionResignActive";
+NSString* const kDZAuthSessionWillResignActive = @"kDZAuthSessionWillResignActive";
 
 @interface DZAuthSessionManager ()
 {
@@ -93,6 +94,7 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
         _activeSession = session;
         [_valet setString:session.userID forKey:kDZAuthActiveUserID];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDZAuthSessionRegisterActive object:nil];
 }
 
 - (BOOL) removeSessionByID:(NSString *)userID
@@ -136,6 +138,7 @@ static NSString* kDZAuthActiveUserID = @"kDZAuthActiveUserID------";
 }
 - (BOOL) resignActiveSession
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDZAuthSessionWillResignActive object:nil];
     @synchronized (self) {
         [_valet removeObjectForKey:kDZAuthActiveUserID];
         _activeSession = nil;
